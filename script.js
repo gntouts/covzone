@@ -14,6 +14,7 @@ else {
 }
 
 function addToDatalist(item) {
+    console.log(item);
     let deskList = document.getElementById('desk-counties');
     let mobList = document.getElementById('mob-counties');
     let itemNode = document.createElement('option');
@@ -53,6 +54,7 @@ function getGeolocation() {
 
 $.getJSON('https://covid19clock.herokuapp.com/v1/counties', function (data) {
     let counties = data.counties;
+    console.log(counties);
     counties.sort();
     counties.forEach(addToDatalist);
 });
