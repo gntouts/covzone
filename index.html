@@ -99,10 +99,13 @@
                                 Ταχυδρομικό
                                 της Κώδικα.
                             </p>
-                            <input id="desk-zip" name="desk-zip" placeholder="ΤΚ" type="text" pattern="[0-9]*">
+
+                            <input id="desk-zip" name="desk-zip" required placeholder="Εισάγετε τον ΤΚ χωρίς κενά"
+                                type="text" pattern="[0-9]{5}">
 
 
                             <button id="desk-zip-button" type="button" class="btn btn-dark">Αναζήτηση</button>
+
                         </div>
                     </div>
 
@@ -118,7 +121,7 @@
                             <p>Για να δείτε το επίπεδο μέτρων στην Περιφερειακή Ενότητα που σας ενδιαφέρει,
                                 επιλέξτε την
                                 στην λίστα. </p>
-                            <input list="desk-counties" name="desk-county" id="desk-county">
+                            <input list="desk-counties" name="desk-county" id="desk-county" required>
                             <datalist id="desk-counties">
 
                             </datalist>
@@ -172,11 +175,11 @@
                                         τον
                                         Ταχυδρομικό της Κώδικα.
                                     </p>
-                                    <input id="mob-zip" class="mob-input" name="mob=zip" placeholder="ΤΚ" type="text"
-                                        pattern="[0-9]*">
+                                    <input id="mob-zip" class="mob-input" required name="mob-zip" placeholder="ΤΚ"
+                                        type="text" pattern="[0-9]{5}">
 
 
-                                    <button id="mob-zip-button" type="button" class="btn btn-dark">Αναζήτηση</button>
+                                    <button id="mob-zip-button" type="submit" class="btn btn-dark">Αναζήτηση</button>
                                 </div>
                             </div>
 
@@ -197,13 +200,14 @@
                                     <p>Για να δείτε το επίπεδο μέτρων στην Περιφερειακή Ενότητα που σας
                                         ενδιαφέρει,
                                         επιλέξτε την στην λίστα. </p>
-                                    <input class="mob-input" list="mob-counties" name="mob-county" id="mob-county">
+                                    <input class="mob-input" list="mob-counties" required name="mob-county"
+                                        id="mob-county">
                                     <datalist id="mob-counties">
 
                                     </datalist>
 
 
-                                    <button id="mob-county-button" type="button" class="btn btn-dark">Αναζήτηση</button>
+                                    <button id="mob-county-button" type="submit" class="btn btn-dark">Αναζήτηση</button>
 
                                 </div>
                             </div>
@@ -229,12 +233,35 @@
                         δικαιώματα χρήσης
                         της τοποθεσίας σας.</h5>
 
+
+                    <div id='news-dropdown' class="dropright btn-group">
+                        <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton2"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Περισσότερες Πληροφορίες
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-center" aria-labelledby="dropdownMenuButton2">
+                            <li>
+                                <a id="latest-news" class="dropdown-item"
+                                    href="https://news.google.com/search?q=covid-19 κορωνοϊός" target="_blank">
+                                    Δείτε τα τελευταία νέα στην περιοχή σας
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" id=' latest-report'
+                                    href="https://eody.gov.gr/epidimiologika-statistika-dedomena/ektheseis-covid-19/"
+                                    target="_blank">
+                                    Δείτε τις τελευταίες εκθέσεις
+                                    του ΕΟΔΥ
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
         <div id="footer" class="text-center box box-1">
             <nav class="navbar navbar-sticky navbar-dark text-center bg-dark">
-                <span class='text-center'>Copyleft 2020 by <a class="navbar-brand"
+                <span class='text-center'>Copyleft 🄯 2020 | <a class="navbar-brand"
                         href="https://github.com/gntouts">gntouts</a></span>
             </nav>
         </div>

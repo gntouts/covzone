@@ -78,13 +78,23 @@ document.getElementById('mob-location-button').addEventListener('click', getData
 
 
 document.getElementById('mob-zip-button').addEventListener('click', onGetByZipButtonClick);
-document.getElementById('mob-county-button').addEventListener('click', onGetButtonClick);
+document.getElementById('desk-zip-button').addEventListener('click', onGetByZipButtonClick);
+
+
+document.getElementById('mob-county-button').addEventListener('click', onGetByCountyButtonClick);
+document.getElementById('desk-county-button').addEventListener('click', onGetByCountyButtonClick);
+
+
 document.getElementById('mob-location-button').addEventListener('click', onGetButtonClick);
 
 function onGetByZipButtonClick() {
     onGetButtonClick();
     getDataByZipCode();
+}
 
+function onGetByCountyButtonClick() {
+    onGetButtonClick();
+    getDataByCounty();
 }
 
 function getDataByGeolocation() {
@@ -105,18 +115,24 @@ function getCovidDataByZip(zip) {
     let covidUrl = 'https://covid19clock.herokuapp.com/v1/zip/';
     covidUrl += zip;
     $.getJSON(covidUrl).done(function (answer) {
-        console.log(answer);
-        showResult(answer.full_name, answer.full_level, answer.color);
+        showResult(answer.full_name, answer.name, answer.full_level, answer.color);
     });
 }
 
+function getCovidDataByCounty(county) {
+    let covidUrl = 'https://covid19clock.herokuapp.com/v1/counties/';
+    covidUrl += county;
+    $.getJSON(covidUrl).done(function (answer) {
+        showResult(answer.full_name, answer.name, answer.full_level, answer.color);
+    });
+}
 
-function showResult(fullName, fullLevel, color) {
+function showResult(fullName, name, fullLevel, color) {
     document.getElementById('perioxi').innerText = fullName;
     document.getElementById('status').innerText = fullLevel;
 
-    if (color == 'gray') {
-        let color = '#605f69';
+    if (color == 'grey') {
+        let color = 'black';
         document.getElementById('perioxi').style.color = 'white';
         document.getElementById('status').style.color = 'white';
         document.getElementById('result-container').style.backgroundColor = color;
@@ -133,6 +149,7 @@ function showResult(fullName, fullLevel, color) {
         document.getElementById('status').style.color = 'black';
         document.getElementById('result-container').style.backgroundColor = color;
     }
+    document.getElementById('latest-news').href += ' ' + name + ' when:1d';
     document.getElementById('result-container').style.display = "block";
 }
 
@@ -156,7 +173,19 @@ function getDataByZipCode() {
     getCovidDataByZip(tk);
 }
 
+function getDataByCounty() {
+    if (touchDevice) {
+        var inputId = 'mob-county';
+    }
+    else {
+        var inputId = 'desk-county';
+    }
+    let county = document.getElementById(inputId).value;
+    getCovidDataByCounty(county);
+}
+
 function collapseAll() {
     $('#collapseZipCode').collapse('hide');
     $('#collapseCounty').collapse('hide');
 }
+

@@ -36,10 +36,10 @@ body {
     justify-content: center;
 }
 
-/* .customContainer .box-1 { */
-    /* background-color: green; */
+.customContainer .box-1 {
+    background-color: #605f69
     /* height: 60px; */
-/* } */
+}
 
 .customContainer .box-2 {
     /* background-color: blue; */
@@ -61,7 +61,7 @@ body {
 }
 
 #perioxi {
-    padding-top: 3em;
+    padding-top: 2.2em;
     padding-bottom: 2em;
 }
 
@@ -87,11 +87,29 @@ body {
     padding-bottom: 0;
     color: rgb(230, 230, 230);
     font-size:1em;
+    text-decoration: underline;
+}
+
+#footer > nav span a:hover {
+    font-weight: 700;
+    color: white;
 }
 
 #title > h1 {
     font-size: 1.8em;
     padding-top: 0.8em;
     padding-bottom: 0.4em;
+}
+
+#news-dropdown {
+    margin-top: 2em;
+}
+
+.dropdown-menu-center {
+    right: auto;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0);
+    -o-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
 }
 
