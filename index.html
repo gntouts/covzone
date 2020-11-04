@@ -9,6 +9,7 @@
     <title>CovZone - Αρχική</title>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"
         integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <link rel="manifest" href="covzone.webmanifest">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
@@ -30,6 +31,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="https://covid19.gov.gr/covid-map/">Αρχική</a>
                         </li>
+
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -57,6 +59,9 @@
                                 <a class="dropdown-item" target="_blank"
                                     href="https://covid19clock.herokuapp.com/docs">API Docs</a>
                             </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="install" hidden href="#">Εγκατάσταση</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" target="_blank" href="https://covid19.gov.gr/covid-map/">Covid Map</a>
@@ -100,7 +105,7 @@
                                 της Κώδικα.
                             </p>
 
-                            <input id="desk-zip" name="desk-zip" required placeholder="Εισάγετε τον ΤΚ χωρίς κενά"
+                            <input id="desk-zip" name="desk-zip" required placeholder="Εισάγετε ΤΚ χωρίς κενά"
                                 type="text" pattern="[0-9]{5}">
 
 
@@ -121,7 +126,8 @@
                             <p>Για να δείτε το επίπεδο μέτρων στην Περιφερειακή Ενότητα που σας ενδιαφέρει,
                                 επιλέξτε την
                                 στην λίστα. </p>
-                            <input list="desk-counties" name="desk-county" id="desk-county" required>
+                            <input list="desk-counties" name="desk-county" placeholder="Εισάγετε Περιφ. Ενότητα"
+                                id="desk-county" required>
                             <datalist id="desk-counties">
 
                             </datalist>
@@ -175,8 +181,8 @@
                                         τον
                                         Ταχυδρομικό της Κώδικα.
                                     </p>
-                                    <input id="mob-zip" class="mob-input" required name="mob-zip" placeholder="ΤΚ"
-                                        type="text" pattern="[0-9]{5}">
+                                    <input id="mob-zip" class="mob-input" required name="mob-zip"
+                                        placeholder="Εισάγετε ΤΚ χωρίς κενά" type="text" pattern="[0-9]{5}">
 
 
                                     <button id="mob-zip-button" type="submit" class="btn btn-dark">Αναζήτηση</button>
@@ -200,8 +206,8 @@
                                     <p>Για να δείτε το επίπεδο μέτρων στην Περιφερειακή Ενότητα που σας
                                         ενδιαφέρει,
                                         επιλέξτε την στην λίστα. </p>
-                                    <input class="mob-input" list="mob-counties" required name="mob-county"
-                                        id="mob-county">
+                                    <input class="mob-input" list="mob-counties" placeholder="Εισάγετε Περιφ. Ενότητα"
+                                        required name="mob-county" id="mob-county">
                                     <datalist id="mob-counties">
 
                                     </datalist>

@@ -12,6 +12,26 @@ if (touchDevice) {
     document.getElementById('desk-view').style.display = 'block';
 }
 
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js')
+        .then(serviceWorker => {
+            console.log('Service Worker registered');
+            window.serviceWorker = serviceWorker
+        });
+}
+
+window.addEventListener('beforeinstallprompt', e => {
+    if (window.matchMedia('(display-mode: standalone)').matches) {
+        // don't display install banner when installed
+        return e.preventDefault();
+    } else {
+        const btn = document.querySelector('#install')
+        btn.hidden = false;
+        btn.onclick = _ => e.prompt();
+        return e.preventDefault();
+    }
+});
+
 function hideMenuDropdowns() {
     $('#navbarDropdownMenuLink2').dropdown('hide');
     $('#navbarDropdownMenuLink1').dropdown('hide');
