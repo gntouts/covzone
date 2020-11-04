@@ -37,7 +37,7 @@ body {
 }
 
 .customContainer .box-1 {
-    background-color: green;
+    /* background-color: green; */
     /* height: 60px; */
 }
 
@@ -57,4 +57,40 @@ body {
 #result-container {
     height: 100%;
     padding: 5em;
+    display: none;
+}
+
+#perioxi {
+    padding-bottom: 2em;
+}
+
+#footer {
+    /* margin-top: 0.2em; */
+    margin-bottom: 0;
+}
+
+#footer > nav {
+    padding-top: 0.1em;
+    padding-bottom: 0.1em;
+}
+
+#footer > nav span {
+    /* padding-top: 0.1em; */
+    padding-bottom: 0;
+    font-size: 0.9em;
+    color: rgb(230, 230, 230);
+
+}
+
+#footer > nav span a {
+    /* padding-top: 0.1em; */
+    padding-bottom: 0;
+    color: rgb(230, 230, 230);
+    font-size:1em;
+}
+
+#title > h1 {
+    font-size: 1.8em;
+    padding-top: 0.8em;
+    padding-bottom: 0.4em;
 }
