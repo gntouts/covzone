@@ -77,10 +77,15 @@ document.getElementById('desk-location-button').addEventListener('click', getDat
 document.getElementById('mob-location-button').addEventListener('click', getDataByGeolocation);
 
 
-document.getElementById('mob-zip-button').addEventListener('click', onGetButtonClick);
+document.getElementById('mob-zip-button').addEventListener('click', onGetByZipButtonClick);
 document.getElementById('mob-county-button').addEventListener('click', onGetButtonClick);
 document.getElementById('mob-location-button').addEventListener('click', onGetButtonClick);
 
+function onGetByZipButtonClick() {
+    onGetButtonClick();
+    getDataByZipCode();
+
+}
 
 function getDataByGeolocation() {
     $('#collapseGeolocation').collapse('hide');
@@ -138,6 +143,17 @@ function geoError(err) {
     document.getElementById('status').style.color = 'black';
     document.getElementById('result-container').style.backgroundColor = 'gray';
     document.getElementById('result-container').style.display = "block";
+}
+function getDataByZipCode() {
+    if (touchDevice) {
+        var inputId = 'mob-zip';
+    }
+    else {
+        var inputId = 'desk-zip';
+    }
+    let tk = document.getElementById(inputId).value;
+    tk = tk.toString();
+    getCovidDataByZip(tk);
 }
 
 function collapseAll() {
