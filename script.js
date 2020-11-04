@@ -14,7 +14,6 @@ else {
 }
 
 function addToDatalist(item) {
-    console.log(item);
     let deskList = document.getElementById('desk-counties');
     let mobList = document.getElementById('mob-counties');
     let deskItemNode = document.createElement('option');
@@ -28,12 +27,10 @@ function addToDatalist(item) {
 
 function mobGeoSuccess() {
     $('#collapseGeolocation').collapse('hide');
-    console.log('geo success - mobile');
 }
 
 function mobGeoError() {
     $('#collapseGeolocation').collapse('hide');
-    console.log('geo Error - mobile');
 }
 
 
