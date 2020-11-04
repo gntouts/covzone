@@ -3,9 +3,9 @@
     "short_name": "CovZone",
     "theme_color": "#000000",
     "background_color": "#F6BC26",
-    "display": "standalone",
+    "display": "fullscreen",
     "orientation": "portrait",
-    "scope": "/",
+    "scope": "https://covzone.netlify.app/",
     "start_url": "/",
     "icons": [
         {
