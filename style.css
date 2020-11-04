@@ -26,9 +26,9 @@ body {
     margin-bottom: 0.5em;
 }
 
-#result-view {
+/* #result-view { */
     /* background-color: brown; */
-}
+/* } */
 
 .customContainer .box {
     display: flex;
@@ -36,10 +36,10 @@ body {
     justify-content: center;
 }
 
-.customContainer .box-1 {
+/* .customContainer .box-1 { */
     /* background-color: green; */
     /* height: 60px; */
-}
+/* } */
 
 .customContainer .box-2 {
     /* background-color: blue; */
@@ -56,18 +56,19 @@ body {
 
 #result-container {
     height: 100%;
-    padding: 5em;
+    padding: 0;
     display: none;
 }
 
 #perioxi {
+    padding-top: 3em;
     padding-bottom: 2em;
 }
 
 #footer {
     /* margin-top: 0.2em; */
     margin-bottom: 0;
-}
+    }
 
 #footer > nav {
     padding-top: 0.1em;
@@ -79,7 +80,6 @@ body {
     padding-bottom: 0;
     font-size: 0.9em;
     color: rgb(230, 230, 230);
-
 }
 
 #footer > nav span a {
@@ -94,3 +94,4 @@ body {
     padding-top: 0.8em;
     padding-bottom: 0.4em;
 }
+
