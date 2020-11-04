@@ -29,11 +29,6 @@ body {
 }
 
 .customContainer .box {
-    text-align: center;
-    color: white;
-    font-family: sans-serif;
-    font-size: 36px;
-    padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -45,7 +40,7 @@ body {
 }
 
 .customContainer .box-2 {
-    background-color: blue;
+    /* background-color: blue; */
     flex: 1;
 }
 
@@ -54,4 +49,9 @@ body {
     min-height: 100%;
     display: flex;
     flex-direction: column;
+}
+
+#result-container {
+    height: 100%;
+    padding: 5em;
 }
