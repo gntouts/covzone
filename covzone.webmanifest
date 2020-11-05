@@ -5,10 +5,9 @@
     "background_color": "#F6BC26",
     "display": "fullscreen",
     "orientation": "portrait",
-    "scope": "https://covzone.netlify.app/",
+    "scope": "/",
     "start_url": "/",
-    "icons": [
-        {
+    "icons": [{
             "src": "images/icons/icon-72x72.png",
             "sizes": "72x72",
             "type": "image/png"
@@ -48,5 +47,10 @@
             "sizes": "512x512",
             "type": "image/png"
         }
-    ]
+    ],
+    "shortcuts": [{
+        "name": "CovZone Geo",
+        "url": "/geo",
+        "description": "Get the zone by providing your geolocation"
+    }]
 }
