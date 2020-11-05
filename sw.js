@@ -1,5 +1,4 @@
-var CACHE_NAME = 'covzone-cache-' + Math.floor(Date.now() / 1000).toString();
-
+var CACHE_NAME = 'covzone-cache-v0.02';
 var urlsToCache = [
     '/',
     "/geo.html",
@@ -32,44 +31,43 @@ var urlsToCache = [
     "assets/ms-icon-310x310.png"
 ];
 
-self.addEventListener('install', function (event) {
+self.addEventListener('install', function(event) {
     // Perform install steps
     event.waitUntil(
         caches.open(CACHE_NAME)
-            .then(function (cache) {
-                return cache.addAll(urlsToCache);
-            })
+        .then(function(cache) {
+            return cache.addAll(urlsToCache);
+        })
     );
 });
 
 
-self.addEventListener('fetch', function (event) {
+self.addEventListener('fetch', function(event) {
     event.respondWith(
         caches.match(event.request)
-            .then(function (response) {
-                // Cache hit - return response
-                if (response) {
-                    return response;
-                }
-                return fetch(event.request);
+        .then(function(response) {
+            // Cache hit - return response
+            if (response) {
+                return response;
             }
-            )
+            return fetch(event.request);
+        })
     );
 });
 
 
 
-self.addEventListener('activate', function (event) {
+self.addEventListener('activate', function(event) {
     console.log('Updating Service Worker...')
     event.waitUntil(
-        caches.keys().then(function (cacheNames) {
+        caches.keys().then(function(cacheNames) {
             return Promise.all(
-                cacheNames.filter(function (cacheName) {
+                cacheNames.filter(function(cacheName) {
                     // Return true if you want to remove this cache,
                     // but remember that caches are shared across
                     // the whole origin
                     return true
-                }).map(function (cacheName) {
+                }).map(function(cacheName) {
                     return caches.delete(cacheName);
                 })
             );
