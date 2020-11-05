@@ -132,7 +132,3 @@ body {
 #unselectable:hover {
     cursor: default;
 }
-
-.rotated {
-    transform: rotate(180deg);
-}
