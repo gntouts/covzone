@@ -167,7 +167,7 @@ function showResult(fullName, name, fullLevel, color) {
         document.getElementById('status').style.color = 'black';
         document.getElementById('result-container').style.backgroundColor = color;
     }
-    document.getElementById('latest-news').href += ' ' + name + ' when:2d';
+    document.getElementById('latest-news').href = 'https://news.google.com/search?q=κορωνοϊός ' + name + ' when:2d';
     document.getElementById('result-container').style.display = "block";
 }
 
