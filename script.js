@@ -13,7 +13,7 @@ if (touchDevice) {
 }
 
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/service-worker.js')
+    navigator.serviceWorker.register('/sw.js')
         .then(serviceWorker => {
             console.log('Service Worker registered');
             window.serviceWorker = serviceWorker
@@ -85,7 +85,7 @@ function getPosition(el) {
     };
 }
 
-$.getJSON('https://covid19clock.herokuapp.com/v1/counties', function (data) {
+$.getJSON('https://covid19clock.herokuapp.com/v1/counties', function(data) {
     let counties = data.counties;
     counties.sort();
     counties.forEach(addToDatalist);
@@ -125,7 +125,7 @@ function getDataByGeolocation() {
 function geoSucces(position) {
     let url = 'https://nominatim.openstreetmap.org/reverse?format=json&lat=' + position.coords.latitude;
     url += '&lon=' + position.coords.longitude;
-    $.getJSON(url).done(function (location) {
+    $.getJSON(url).done(function(location) {
         let zip = location.address.postcode;
         getCovidDataByZip(zip);
     });
@@ -134,7 +134,7 @@ function geoSucces(position) {
 function getCovidDataByZip(zip) {
     let covidUrl = 'https://covid19clock.herokuapp.com/v1/zip/';
     covidUrl += zip;
-    $.getJSON(covidUrl).done(function (answer) {
+    $.getJSON(covidUrl).done(function(answer) {
         showResult(answer.full_name, answer.name, answer.full_level, answer.color);
     });
 }
@@ -142,7 +142,7 @@ function getCovidDataByZip(zip) {
 function getCovidDataByCounty(county) {
     let covidUrl = 'https://covid19clock.herokuapp.com/v1/counties/';
     covidUrl += county;
-    $.getJSON(covidUrl).done(function (answer) {
+    $.getJSON(covidUrl).done(function(answer) {
         showResult(answer.full_name, answer.name, answer.full_level, answer.color);
     });
 }
@@ -156,14 +156,12 @@ function showResult(fullName, name, fullLevel, color) {
         document.getElementById('perioxi').style.color = 'white';
         document.getElementById('status').style.color = 'white';
         document.getElementById('result-container').style.backgroundColor = color;
-    }
-    else if (color == 'red') {
+    } else if (color == 'red') {
         let color = '#AC242A';
         document.getElementById('perioxi').style.color = 'white';
         document.getElementById('status').style.color = 'white';
         document.getElementById('result-container').style.backgroundColor = color;
-    }
-    else {
+    } else {
         let color = '#F6BC26';
         document.getElementById('perioxi').style.color = 'black';
         document.getElementById('status').style.color = 'black';
@@ -181,11 +179,11 @@ function geoError(err) {
     document.getElementById('result-container').style.backgroundColor = 'gray';
     document.getElementById('result-container').style.display = "block";
 }
+
 function getDataByZipCode() {
     if (touchDevice) {
         var inputId = 'mob-zip';
-    }
-    else {
+    } else {
         var inputId = 'desk-zip';
     }
     let tk = document.getElementById(inputId).value;
@@ -196,8 +194,7 @@ function getDataByZipCode() {
 function getDataByCounty() {
     if (touchDevice) {
         var inputId = 'mob-county';
-    }
-    else {
+    } else {
         var inputId = 'desk-county';
     }
     let county = document.getElementById(inputId).value;
@@ -208,4 +205,3 @@ function collapseAll() {
     $('#collapseZipCode').collapse('hide');
     $('#collapseCounty').collapse('hide');
 }
-
